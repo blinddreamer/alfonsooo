@@ -1,4 +1,6 @@
 - hosts: ubuntu
+  vars:
+    ansible_host_key_checking: false
   become: yes
   tasks:
   - name: PLS UPDATE THIS BRO
