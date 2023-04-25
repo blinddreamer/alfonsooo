@@ -1,5 +1,4 @@
 - hosts: ubuntu
-  host_key_checking = False
   become: yes
   tasks:
   - name: PLS UPDATE THIS BRO
