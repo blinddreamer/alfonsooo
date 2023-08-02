@@ -12,4 +12,4 @@
   - name: DELETE OLD SHIT
     apt:
       autoremove: yes
-      when: apt_update_status.changed    
+    when: apt_update_status.changed
