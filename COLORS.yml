@@ -2,7 +2,7 @@
   hosts: ubuntu
   vars:
     ansible_host_key_checking: false
-  become: yes
+  #become: yes
   tasks:
     - name: "doh"
       become: yes
