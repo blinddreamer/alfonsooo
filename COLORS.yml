@@ -2,10 +2,9 @@
   hosts: ubuntu
   vars:
     ansible_host_key_checking: false
-  #become: yes
   tasks:
     - name: "doh"
-      become: yes
+      #become: yes
       become_user: root
       tags: doh
       lineinfile:
