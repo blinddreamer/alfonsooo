@@ -1,0 +1,19 @@
+- name: COLORS
+  hosts: ubuntu
+  vars:
+    ansible_host_key_checking: false
+  become: yes
+  tasks:
+    - name: "doh"
+      become: yes
+      become_user: root
+      tags: doh
+      lineinfile:
+        path: ~/.bashrc
+        # The String to Search
+        regexp: "#force_color_prompt=yes"
+        # The String to Replace
+        line: "force_color_prompt=yes"
+        state: present
+        backup: yes
+      register: dohout
