@@ -19,8 +19,8 @@
         url: "{{ ntfy_server }}/{{ ntfy_channel_update }}"
         method: POST
         body: "update complete 🐓"
-        user: { { user } }
-        password: { { pass } }
-        #headers:
-        #  Content-Type: application/json
-        #  x-ms-client-auth-token: "Bearer {{ token }}"
+        #user: { { user } }
+        #password: { { pass } }
+        headers:
+          Content-Type: "application/json"
+          x-ms-client-auth-token: "Bearer {{ token }}"
