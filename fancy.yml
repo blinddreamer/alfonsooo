@@ -1,8 +1,6 @@
 - hosts: ubuntu
   vars:
     ansible_host_key_checking: false
-    ntfy_server:
-    ntfy_channel_update:
 
   become: yes
   tasks:
