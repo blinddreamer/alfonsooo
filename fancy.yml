@@ -19,11 +19,9 @@
         post_reboot_delay: 180
       when: apt_update_status.changed
 
-    - name: Send ntfy update
       uri:
-        url: "{{ ntfy_server }}/{{ ntfy_channel_update }}"
+        url: "{{ ntfy_server }}{{ ntfy_channel_update }}"
         method: POST
-        body: "update complete  🐄"
+        body: "update complete 🐓"
         headers:
-          Content-Type: application/json
-          x-ms-client-auth-token: "Bearer {{ token }}"
+          Authorization: { { token } }

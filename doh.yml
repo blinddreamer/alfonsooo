@@ -16,7 +16,7 @@
       when: apt_update_status.changed
 
       uri:
-        url: "{{ ntfy_server }}/{{ ntfy_channel_update }}"
+        url: "{{ ntfy_server }}{{ ntfy_channel_update }}"
         method: POST
         body: "update complete 🐓"
         headers:
