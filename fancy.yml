@@ -21,6 +21,9 @@
 
     - name: Send ntfy update
       uri:
-        url: "https://ntfy.huku.rocks/alerts"
+        url: "{{ ntfy_channel_update }}/{{ ntfy_server }}"
         method: POST
         body: "update complete  🐄"
+        headers:
+          Content-Type: application/json
+          x-ms-client-auth-token: "{{ token }}"
