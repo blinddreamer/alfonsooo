@@ -18,8 +18,6 @@
       uri:
         url: "{{ ntfy_server }}/{{ ntfy_channel_update }}"
         method: POST
-        follow_redirects: all
         body: "update complete 🐓"
         headers:
-          Content-Type: "application/json"
           Authorization: "Bearer {{ token }}"
