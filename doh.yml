@@ -18,8 +18,8 @@
     - name: Send ntfy update
       uri:
         url: "{{ ntfy_server }}{{ ntfy_channel_update }}"
-        method: POST
         return_content: true
+        method: POST
         body: "update complete  🐓"
         headers:
           x-ms-client-auth-token: "{{ token }}"
