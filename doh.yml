@@ -20,4 +20,4 @@
         method: POST
         body: "update complete 🐓"
         headers:
-          Authorization: { { token } }
+          Authorization: "{{ token }}"
