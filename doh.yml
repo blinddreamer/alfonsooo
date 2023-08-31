@@ -22,4 +22,4 @@
         method: POST
         body: "update complete  🐓"
         headers:
-          x-ms-client-auth-token: "{{ token }}"
+          Authorization: "{{ token }}"
