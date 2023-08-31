@@ -1,29 +1,28 @@
 - hosts: ubuntu
   vars:
     ansible_host_key_checking: false
+    ntfy_server:
+    ntfy_channel_update:
+
   become: yes
   tasks:
-    env_vars:
-      - name: ntfy_server
-      - name: ntfy_channel_update
+    - name: PLS UPDATE
+      apt:
+        update_cache: yes
+        upgrade: "yes"
+      register: apt_update_status
 
-      - name: PLS UPDATE
-        apt:
-          update_cache: yes
-          upgrade: "yes"
-        register: apt_update_status
+    - name: DELETE OLD SHIT
+      apt:
+        autoremove: yes
 
-      - name: DELETE OLD SHIT
-        apt:
-          autoremove: yes
+    - name: REBOOT.me
+      reboot:
+        post_reboot_delay: 180
+      when: apt_update_status.changed
 
-      - name: REBOOT.me
-        reboot:
-          post_reboot_delay: 180
-        when: apt_update_status.changed
-
-      - name: Send ntfy update
-        uri:
-          url: "{{ ntfy_server }}/{{ ntfy_channel_update}}"
-          method: POST
-          body: "update complete"
+    - name: Send ntfy update
+      uri:
+        url: "{{ ntfy_server }}/{{ ntfy_channel_update}}"
+        method: POST
+        body: "update complete  🐄"
