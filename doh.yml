@@ -15,9 +15,10 @@
         autoremove: yes
       when: apt_update_status.changed
 
+    - name: Send ntfy update
       uri:
         url: "{{ ntfy_server }}{{ ntfy_channel_update }}"
         method: POST
-        body: "update complete 🐓"
+        body: "update complete  🐓"
         headers:
-          Authorization: "{{ token }}"
+          x-ms-client-auth-token: "{{ token }}"
