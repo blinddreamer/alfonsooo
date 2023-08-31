@@ -1,6 +1,7 @@
 - hosts: ubuntu
   vars:
     ansible_host_key_checking: false
+
   become: yes
   tasks:
     - name: PLS UPDATE
@@ -16,6 +17,6 @@
 
     - name: Send ntfy update
       uri:
-        url: "{{ ntfy_server }}/{{ ntfy_channel_update }}"
+        url: "https://ntfy.huku.rocks/alerts"
         method: POST
         body: "update zaku complete"
