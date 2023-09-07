@@ -19,6 +19,6 @@
       uri:
         url: "{{ ntfy_server }}{{ ntfy_channel_update }}"
         method: POST
-        body: " {{ ansible_hostname } update complete  🐓"
+        body: " {{ ansible_hostname }} update complete  🐓"
         headers:
           Authorization: "{{ token }}"
